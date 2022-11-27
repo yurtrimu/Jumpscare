@@ -1,0 +1,92 @@
+<html>
+  <head>
+    <title>NiggersLiveMatter</title>
+  <style>
+.overlay[hidden] {
+display: none;
+}
+            .overlay, .scare {
+                position: fixed;
+
+                top: 0;
+                left: 0;
+
+                height: 100vh;
+                width: 100vw;
+            }
+    .overlay {
+                z-index: 2;
+display: flex;
+align-items: center;
+justify-content: center;
+
+background-color: #f5f6fa;
+padding-right: 24px;
+padding-left: 24px;
+            }
+   video#video {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
+#up{
+                position: fixed;
+
+                top: 5;
+                left: 5;
+
+                height: 100vh;
+                width: 100vw;
+                font-family: "Lucida Console", "Courier New", monospace;
+                font-size: 30px;
+}
+
+#btn{
+                position: absolute;
+
+                top: 5;
+                left: 1625;
+
+                height: 5vh;
+                width: 15vw;
+  font-family: Arial, Helvetica, sans-serif;
+                font-size: 30px;
+}
+
+video#video::-webkit-media-controls-enclosure {
+                display:none !important;
+</style>
+  </head>
+  <body>
+<div id="overlay" class="overlay">
+<img src="noimage.png" alt=" ">
+</div>
+</div>
+<div class="scare">
+<video id="video" class="video" src="https://pnrtscr.com/video.mp4" loop=""></video>
+</div>
+
+<script>
+            const video = document.getElementById("video");
+            const overlay = document.getElementById("overlay");
+            window.oncontextmenu = function () {
+            startVideo();
+            }
+            document.body.onclick = function () {
+            startVideo();
+            }
+            function startVideo()
+            {
+                event.preventDefault();
+                overlay.hidden = true;
+                video.play();
+                const { documentElement } = document;
+                if(documentElement.requestFullscreen) documentElement.requestFullscreen();
+                else if(documentElement.mozRequestFullScreen) documentElement.mozRequestFullScreen();
+                else if(documentElement.webkitRequestFullscreen) documentElement.webkitRequestFullscreen();
+                else if(documentElement.msRequestFullscreen) documentElement.msRequestFullscreen();
+            }
+        
+</script>
+  </body>
+</html>
